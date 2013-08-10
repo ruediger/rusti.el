@@ -42,7 +42,7 @@
   :group 'rusti
   :type 'file)
 
-(defcustom rusti-prompt-regexp "^rusti> "
+(defcustom rusti-prompt-regexp "^rusti\\(>\\||\\) "
   "Regexp to match prompts for rusti."
   :group 'rusti
   :type 'regexp)
