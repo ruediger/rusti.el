@@ -3,3 +3,5 @@
 Rusti.el provides an Emacs interface to the REPL of the [[http://www.rust-lang.org/][Rust programming
 language]] (=rusti=).
 
+Rusti.el also provides a minor mode =rusti-minor-mode= to provide convenient
+keybindings for [[https://github.com/mozilla/rust/tree/master/src/etc/emacs][rust-mode]] to send code to =rusti=.
