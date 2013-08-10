@@ -95,6 +95,54 @@ Unless ARG is non-nil, switch to the buffer."
   (setq-local comment-end "")
   (setq-local comint-prompt-read-only rusti-prompt-read-only))
 
+(defun rusti-eval-region (begin end)
+  "Evaluate region between BEGIN and END."
+  (interactive "r")
+  (rusti t)
+  (comint-send-region rusti-buffer begin end)
+  (comint-send-string rusti-buffer "\n"))
+
+(defun rusti-eval-buffer ()
+  "Evaluate complete buffer."
+  (interactive)
+  (rusti-eval-region (point-min) (point-max)))
+
+(defun rusti-eval-line (&optional arg)
+  "Evaluate current line.
+
+If ARG is a positive prefix then evaluate ARG number of lines starting with the
+current one."
+  (interactive "P")
+  (unless arg
+    (setq arg 1))
+  (when (> arg 0)
+    (rusti-eval-region
+     (line-beginning-position)
+     (line-end-position arg))))
+
+(defvar rusti-minor-mode-map
+  (let ((map (make-sparse-keymap)))
+    ; (define-key map "\C-x\C-e" #'rusti-eval-last-sexp)
+    (define-key map "\C-c\C-c" #'rusti-eval-buffer)
+    (define-key map "\C-c\C-r" #'rusti-eval-region)
+    (define-key map "\C-c\C-l" #'rusti-eval-line)
+    map)
+  "Mode map for `rusti-minor-mode'.")
+
+(defcustom rusti-minor-mode-lighter " Rusti"
+  "Text displayed in the mode line (Lighter) if `rusti-minor-mode' is active."
+  :group 'rusti
+  :type 'string)
+
+;;;###autoload
+(define-minor-mode rusti-minor-mode
+  "Add keys and a menu to provide easy access to `rusti' support.
+Usage:
+  (add-hook 'rust-mode-hook #'rusti-minor-mode)"
+  :group 'rusti
+  :lighter rusti-minor-mode-lighter
+  :keymap rusti-minor-mode-map)
+
 (provide 'rusti)
 
 ;;; rusti.el ends here
