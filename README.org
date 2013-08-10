@@ -1,0 +1,5 @@
+# -*- mode:org; mode:auto-fill; fill-column:80; coding:utf-8; -*-
+* rusti.el - Rust interactive mode for Emacs.
+Rusti.el provides an Emacs interface to the REPL of the [[http://www.rust-lang.org/][Rust programming
+language]] (=rusti=).
+
