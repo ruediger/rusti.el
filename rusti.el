@@ -134,6 +134,13 @@ current one."
   :group 'rusti
   :type 'string)
 
+(easy-menu-define rusti-minor-mode rusti-minor-mode-map
+  "Menu for Rusti Minor Mode."
+  '("Rusti"
+    ["Eval Buffer" rusti-eval-buffer :help "Evaluate buffer with Rusti"]
+    ["Eval Region" rusti-eval-region :help "Evaluate selected region with Rusti"]
+    ["Eval Line" rusti-eval-line :help "Evaluate current line with Rusti"]))
+
 ;;;###autoload
 (define-minor-mode rusti-minor-mode
   "Add keys and a menu to provide easy access to `rusti' support.
