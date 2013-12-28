@@ -1,4 +1,4 @@
-;;; rusti --- Rust interactive mode -*- lexical-binding: t -*-
+;;; rusti.el --- Rust interactive mode -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2013 Rüdiger Sonderfeld
 
