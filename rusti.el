@@ -6,6 +6,7 @@
 ;; Created: 10 Aug 2013
 ;; Keywords: rust languages
 ;; URL: https://github.com/ruediger/rusti.el
+;; Package-Requires: ((emacs "24"))
 
 ;;; Commentary:
 
